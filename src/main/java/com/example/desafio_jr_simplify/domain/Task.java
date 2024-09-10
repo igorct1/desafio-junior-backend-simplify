@@ -1,10 +1,7 @@
 package com.example.desafio_jr_simplify.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity(name = "tasks")
 @Table(name = "tasks")
