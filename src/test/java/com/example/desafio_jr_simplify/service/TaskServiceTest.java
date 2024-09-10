@@ -1,8 +1,6 @@
 package com.example.desafio_jr_simplify.service;
 
 import com.example.desafio_jr_simplify.domain.Task;
-import com.example.desafio_jr_simplify.dto.TaskPostRequestDTO;
-import com.example.desafio_jr_simplify.dto.TaskPutRequestDTO;
 import com.example.desafio_jr_simplify.exception.BadRequestExceptionTask;
 import com.example.desafio_jr_simplify.repository.TaskRepository;
 import com.example.desafio_jr_simplify.util.TaskCreator;
@@ -19,11 +17,9 @@ import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @ExtendWith(SpringExtension.class)
