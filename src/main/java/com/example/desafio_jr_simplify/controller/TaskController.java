@@ -2,6 +2,7 @@ package com.example.desafio_jr_simplify.controller;
 
 import com.example.desafio_jr_simplify.domain.Task;
 import com.example.desafio_jr_simplify.dto.TaskPostRequestDTO;
+import com.example.desafio_jr_simplify.dto.TaskPutRequestDTO;
 import com.example.desafio_jr_simplify.service.TaskService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -36,6 +37,12 @@ public class TaskController {
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable long id) {
         taskService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> replace(@RequestBody TaskPutRequestDTO taskPutRequestDTO){
+        taskService.replace(taskPutRequestDTO);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

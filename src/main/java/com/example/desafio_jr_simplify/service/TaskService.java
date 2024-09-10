@@ -2,6 +2,7 @@ package com.example.desafio_jr_simplify.service;
 
 import com.example.desafio_jr_simplify.domain.Task;
 import com.example.desafio_jr_simplify.dto.TaskPostRequestDTO;
+import com.example.desafio_jr_simplify.dto.TaskPutRequestDTO;
 import com.example.desafio_jr_simplify.exception.BadRequestExceptionTask;
 import com.example.desafio_jr_simplify.mapper.TaskMapper;
 import com.example.desafio_jr_simplify.repository.TaskRepository;
@@ -32,7 +33,8 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    public void replace(Task task) {
+    public void replace(TaskPutRequestDTO taskPutRequestDTO) {
+        Task task = TaskMapper.INSTANCE.toTask(taskPutRequestDTO);
         taskRepository.save(task);
     }
 
