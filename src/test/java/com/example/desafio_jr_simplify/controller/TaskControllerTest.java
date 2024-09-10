@@ -45,6 +45,7 @@ class TaskControllerTest {
         BDDMockito.doNothing().when(taskServiceMock).delete(ArgumentMatchers.anyLong());
 
         BDDMockito.doNothing().when(taskServiceMock).replace(ArgumentMatchers.any(TaskPutRequestDTO.class));
+
     }
 
     @Test
