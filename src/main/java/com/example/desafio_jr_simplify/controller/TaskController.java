@@ -27,4 +27,9 @@ public class TaskController {
     public ResponseEntity<Task> save(@RequestBody TaskPostRequestDTO taskPostRequestDTO) {
         return new ResponseEntity<>(taskService.create(taskPostRequestDTO), HttpStatus.CREATED);
     }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<Task> findById(@PathVariable long id) {
+        return ResponseEntity.ok(taskService.findByIdOrThrowBadRequest(id));
+    }
 }
