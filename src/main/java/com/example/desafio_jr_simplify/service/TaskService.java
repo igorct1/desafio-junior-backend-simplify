@@ -9,6 +9,7 @@ import com.example.desafio_jr_simplify.repository.TaskRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class TaskService {
     private final TaskRepository taskRepository;
 
     public List<Task> listAll() {
-        return taskRepository.findAll();
+        return taskRepository.findAll(Sort.by("priority").descending());
     }
 
     public Task findByIdOrThrowBadRequest(long id) {
