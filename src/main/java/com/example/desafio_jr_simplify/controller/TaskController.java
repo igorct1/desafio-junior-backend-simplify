@@ -32,4 +32,10 @@ public class TaskController {
     public ResponseEntity<Task> findById(@PathVariable long id) {
         return ResponseEntity.ok(taskService.findByIdOrThrowBadRequest(id));
     }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable long id) {
+        taskService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
