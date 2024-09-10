@@ -4,6 +4,7 @@ import com.example.desafio_jr_simplify.domain.Task;
 import com.example.desafio_jr_simplify.dto.TaskPostRequestDTO;
 import com.example.desafio_jr_simplify.dto.TaskPutRequestDTO;
 import com.example.desafio_jr_simplify.service.TaskService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,7 @@ public class TaskController {
     }
 
     @PostMapping
-    public ResponseEntity<Task> save(@RequestBody TaskPostRequestDTO taskPostRequestDTO) {
+    public ResponseEntity<Task> save(@RequestBody @Valid TaskPostRequestDTO taskPostRequestDTO) {
         return new ResponseEntity<>(taskService.create(taskPostRequestDTO), HttpStatus.CREATED);
     }
 
