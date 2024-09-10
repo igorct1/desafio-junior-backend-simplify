@@ -1,9 +1,17 @@
 package com.example.desafio_jr_simplify.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity(name = "tasks")
 @Table(name = "tasks")
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,7 +21,7 @@ public class Task {
 
     private String description;
 
-    private String completed;
+    private boolean completed;
 
-    private String priority;
+    private int priority;
 }
