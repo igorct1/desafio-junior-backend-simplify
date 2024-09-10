@@ -2,6 +2,7 @@ package com.example.desafio_jr_simplify.repository;
 
 import com.example.desafio_jr_simplify.domain.Task;
 import com.example.desafio_jr_simplify.util.TaskCreator;
+import jakarta.validation.ConstraintViolationException;
 import lombok.extern.log4j.Log4j2;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -29,6 +30,15 @@ class TaskRepositoryTest {
         Assertions.assertThat(savedTask.getId()).isNotNull();
 
         Assertions.assertThat(savedTask.getName()).isEqualTo(taskToBeSaved.getName());
+    }
+
+    @Test
+    @DisplayName("Create throws ConstraintViolationException when name task name is empty")
+    void save_ThrowsConstraintViolationException_WhenNameIsEmpty() {
+        Task task = new Task();
+
+        Assertions.assertThatExceptionOfType(ConstraintViolationException.class)
+                .isThrownBy(() -> taskRepository.save(task));
     }
 
     @Test
